@@ -25,6 +25,20 @@ header {
     width: 60%;
 }
 
+.nav-div-containeer {
+    position: relative;
+}
+
+.nav-p {
+    display: inline-block;
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #d20600;
+}
+
 input {
     height: 38px;
     width: 230px;
@@ -76,15 +90,20 @@ a:hover {
 
 .main {
     width: 60%;
-    margin: 40px auto;
+    height: 80vh;
+    margin: 0px auto;
 }
 
-.item {
-    background-color: black;
+.items {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
-footer {
-    width: 100%;
+.book {
+    width: 120px;
+    height: 180px;
+    border: 10px solid black;
 }
 
 .footer-container {
@@ -105,4 +124,40 @@ footer {
     position: absolute;
     top: 20%;
     color: white;
+}
+
+.unorder-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    list-style: none;
+}
+
+.li {
+    margin-left: 35px;
+}
+
+.li-img {
+    width: 120px;
+    height: 180px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    transition: width 0.6s, height 0.6s;
+}
+
+.li-img:hover {
+    width: 180px;
+    height: 240px;
+}
+
+.li-p {
+    width: 220px;
+    font-size: 1rem;
+}
+
+.li-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
 }

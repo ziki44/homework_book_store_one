@@ -8,27 +8,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-    <title>Document</title>
+    <title>Home Books Store</title>
 </head>
 <body>
     <header>
         <img src="./media/logo.png" alt="Logo for this page">
         <nav class="nav">
-            <input type="text" value="" />
-            <button><img class="nav-image" src="https://cdn1.iconfinder.com/data/icons/buttons-10/100/Search-512.png" ></button>
+            <div class="nav-div-containeer">
+                <input class="nav-input" type="text" value="" />
+                <p class="nav-p"></p>
+            </div>
+            <button class="nav-button"><img class="nav-image" src="https://cdn1.iconfinder.com/data/icons/buttons-10/100/Search-512.png" ></button>
         </nav>
     </header>
     <div class="menu-main">
         <div class="menu">
-            <a class="main-page" href="" >Strona główna</a>
-            <a class="link" href="">Dodaj książkę</a>
+            <a class="main-page" href="./index.html" >Strona główna</a>
+            <a class="link" onclick="openResizePage()">Dodaj książkę</a>
             <a class="link" href="">Wyszukaj książkę</a>    
         </div>
     </div>
     <section>
         <div class="main">
-            <div class="item">
-                <p>Test</p>
+            <div class="items">
+                <ul class="unorder-list">
+
+                </ul>
             </div>
         </div>
     </section>
