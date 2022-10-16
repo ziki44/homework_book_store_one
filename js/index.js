@@ -1,6 +1,7 @@
-let navP = document.querySelector('nav-p');
+let navP = document.querySelector('.nav-p');
 const searchInput = document.querySelector(".nav-input");
-searchInput.addEventListener("change", validate)
+const searchButton = document.querySelector(".nav-button");
+searchButton.addEventListener("click", validate);
 
 let books = [
     {
@@ -56,5 +57,6 @@ function openResizePage () {
 }
 
 function validate () {
-    searchInput.value.length < 3 ? console.log('mniej niż 3') : console.log('>= 3')    
+    searchInput.value.length < 3 ? 
+    navP.innerText = "Za mała ilość znaków!!!" : navP.innerText = ""    
 } 

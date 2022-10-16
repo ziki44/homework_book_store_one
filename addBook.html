@@ -4,9 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./css/addBook.css">
     <title>Add Book</title>
 </head>
 <body>
-    <p>Add book</p>
+    <header class="header">
+        <div class="header-logo">
+            <img src="./media/logo.png" alt="Logo for this page">
+        </div>
+        <div class="header-red-line">
+            <p class="header-p">Add you new book.</p>
+        </div>
+    </header>
+    <form class="form">
+        <div class="form-item">
+            <label for="inputTitle">Book title:</label>
+            <input type="text" id="inputTitle" name="inputTitle" placeholder="Title of your book" />    
+        </div>
+        <div class="form-item">
+            <label for="inputYear">Release year:</label>
+            <input type="text" id="inputYear" name="inputYear" placeholder="Release year" />    
+        </div>
+        <div class="form-item">
+            <label for="inputCategory">Category:</label>
+            <input type="text" id="inputCategory" name="inputCategory" placeholder="Category of your book" />    
+        </div>
+        <div class="form-item">
+            <label for="inputImage">Image link:</label>
+            <input type="text" id="inputImage" name="inputImage" placeholder="Link into your book image" />    
+        </div>
+        <div class="form-item">
+            <label for="inputAlt">Alt for image:</label>
+            <input type="text" id="inputAlt" name="inputAlt" placeholder="Alt for your image" />    
+        </div>
+        <div class="form-item">
+            <label for="inputAuthor">Author:</label>
+            <input type="text" id="inputAuthor" name="inputAuthor" placeholder="Author of your book" />    
+        </div>
+    </form>
+    <div class="footer-container">
+        <div class="footer">
+            <p class="footer-p">&#169 Daniel Zgliński - 2022</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/index.js" ></script>
 </body>
 </html>
