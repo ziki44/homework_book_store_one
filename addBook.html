@@ -16,33 +16,73 @@
             <img src="./media/logo.png" alt="Logo for this page">
         </div>
         <div class="header-red-line">
-            <p class="header-p">Add you new book.</p>
+            <p class="header-p">Add your new book.</p>
         </div>
     </header>
     <form class="form">
-        <div class="form-item">
-            <label for="inputTitle">Book title:</label>
-            <input type="text" id="inputTitle" name="inputTitle" placeholder="Title of your book" />    
-        </div>
-        <div class="form-item">
-            <label for="inputYear">Release year:</label>
-            <input type="text" id="inputYear" name="inputYear" placeholder="Release year" />    
-        </div>
-        <div class="form-item">
-            <label for="inputCategory">Category:</label>
-            <input type="text" id="inputCategory" name="inputCategory" placeholder="Category of your book" />    
-        </div>
-        <div class="form-item">
-            <label for="inputImage">Image link:</label>
-            <input type="text" id="inputImage" name="inputImage" placeholder="Link into your book image" />    
-        </div>
-        <div class="form-item">
-            <label for="inputAlt">Alt for image:</label>
-            <input type="text" id="inputAlt" name="inputAlt" placeholder="Alt for your image" />    
-        </div>
-        <div class="form-item">
-            <label for="inputAuthor">Author:</label>
-            <input type="text" id="inputAuthor" name="inputAuthor" placeholder="Author of your book" />    
+        <div class="form-items">
+            <table>
+                <tr class="table-tr">
+                    <td>
+                        <label class="form-label-title" for="inputTitle">Book title:</label>
+                    </td>
+                    <td>
+                        <input  class="form-input-title" type="text" id="inputTitle" name="inputTitle" placeholder="Title of your book" value=""/>        
+                    </td>
+                </tr>
+                <tr class="table-tr">
+                    <td>
+                        <label class="form-label-year for="inputYear">Release year:</label>
+                    </td>
+                    <td>
+                        <input class="form-input-year type="text" id="inputYear" name="inputYear" placeholder="Release year" value=""/>    
+                    </td>
+                </tr>
+                <tr class="table-tr">
+                    <td>
+                        <label class="form-label-category for="inputCategory">Category:</label>
+                    </td>
+                    <td>
+                        <input class="form-input-category type="text" id="inputCategory" name="inputCategory" placeholder="Category of your book" value=""/>                        
+                    </td>
+                </tr>
+                <tr class="table-tr">
+                    <td>
+                        <label class="form-label-image for="inputImage">Image link:</label>
+                    </td>
+                    <td>
+                        <input class="form-input-image type="text" id="inputImage" name="inputImage" placeholder="Link into your book image" value=""/>    
+                    </td>
+                </tr>
+                <tr class="table-tr">
+                    <td>
+                        <label class="form-label-alt for="inputAlt">Alt for image:</label>
+                    </td>
+                    <td>
+                        <input  class="form-input-alt type="text" id="inputAlt" name="inputAlt" placeholder="Alt for your image" value=""/>    
+                    </td>
+                </tr>
+                <tr class="table-tr">
+                    <td>
+                        <label class="form-label-author for="inputAuthor">Author:</label>
+                    </td>
+                    <td>
+                        <input class="form-input-author type="text" id="inputAuthor" name="inputAuthor" placeholder="Author of your book" value=""/>    
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td-button">
+                        <button class="form-submit-button" type="submit">INSERT</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td-p-validation">
+                        <p class="form-validation-p" id="form-validation-p"></p>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
     <div class="footer-container">
@@ -50,6 +90,6 @@
             <p class="footer-p">&#169 Daniel Zgliński - 2022</p>
         </div>
     </div>
-    <script type="text/javascript" src="./js/index.js" ></script>
+    <script type="text/javascript" src="./js/addBook.js" ></script>
 </body>
 </html>

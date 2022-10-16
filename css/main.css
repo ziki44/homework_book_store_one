@@ -50,6 +50,7 @@ button {
 
 button:hover {
     background-color: rgb(140, 137, 137);
+    cursor: pointer;
 }
 
 .nav-image {
@@ -86,6 +87,7 @@ a {
 
 a:hover {
     color: #d2d9df;
+    cursor: pointer;
 }
 
 .main {
@@ -149,6 +151,7 @@ a:hover {
 .li-img:hover {
     width: 180px;
     height: 240px;
+    cursor: pointer;
 }
 
 .li-p {
