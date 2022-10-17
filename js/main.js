@@ -1,8 +1,7 @@
 let navP = document.querySelector('.nav-p');
 const searchInput = document.querySelector(".nav-input");
 const searchButton = document.querySelector(".nav-button");
-searchInput.addEventListener("change", () => validate());
-searchButton.addEventListener("click", () => validate());
+let unOrderList = document.querySelector(".unorder-list");
 
 
 let filteredBooks = []
@@ -45,39 +44,29 @@ let booksFromLocalStorage = [];
 
 if (!localStorage.getItem("BOOKS")) {
     localStorage.setItem("BOOKS", JSON.stringify(books));
-    console.log("MAIN 1")
 } else {
     booksFromLocalStorage = JSON.parse(localStorage.getItem("BOOKS"));
-    console.log("MAIN 2")
 }
 
-let unOrderList = document.querySelector(".unorder-list");
+const printList = (arr = [], htmlElement) => {
+    htmlElement.innerHTML = "";
+    arr.forEach((item, index) => {
+        htmlElement.innerHTML +=` 
+        <li class="li">
+            <p class="li-p li-title">Title: ${item.title}</p>
+            <img class="li-img" src=${item.image} alt=${item.alt}></img>
+            <p class="li-p">Author: ${item.author}</p>
+            <p class="li-p">Release date: ${item.year}</p>
+            <p class="li-p">Category: ${item.category}</p>
+        </li>`
+    })
+}
 
 function loadBooks () {
         if (booksFromLocalStorage.length === 0) {
-            unOrderList.innerHTML = "";
-            books.forEach((item, index) => {
-                unOrderList.innerHTML +=` 
-                <li class="li">
-                    <p class="li-p li-title">Title: ${item.title}</p>
-                    <img class="li-img" src=${item.image} alt=${item.alt}></img>
-                    <p class="li-p">Author: ${item.author}</p>
-                    <p class="li-p">Release date: ${item.year}</p>
-                    <p class="li-p">Category: ${item.category}</p>
-                </li>`
-            })
+            printList(books, unOrderList)
         } else {
-            unOrderList.innerHTML = "";
-            booksFromLocalStorage.forEach((item, index) => {
-                unOrderList.innerHTML +=` 
-                <li class="li">
-                    <p class="li-p li-title">Title: ${item.title}</p>
-                    <img class="li-img" src=${item.image} alt=${item.alt}></img>
-                    <p class="li-p">Author: ${item.author}</p>
-                    <p class="li-p">Release date: ${item.year}</p>
-                    <p class="li-p">Category: ${item.category}</p>
-                </li>`
-            })
+            printList(booksFromLocalStorage, unOrderList)
         }
         
 }
@@ -89,30 +78,27 @@ function openResizePage () {
     let win = window.open('/addBook.html', 'Add book', windowProperties )
 }
 
-function validate () {
-    if (searchInput.value.length < 3) {
-        navP.innerText = "Za mała ilość znaków!!!"
-        setTimeout(() => location.reload(), 2000) 
-    } else {
-        navP.innerText = "";
-    }
-     
+const fillList = (arr = [], htmlElement) => {
+    htmlElement.innerHTML = "";
+    arr.forEach((item, index) => {
+        htmlElement.innerHTML +=` 
+        <li class="li">
+            <p class="li-p li-title">Title: ${item.title}</p>
+            <img class="li-img" src=${item.image} alt=${item.alt}></img>
+            <p class="li-p">Author: ${item.author}</p>
+            <p class="li-p">Release date: ${item.year}</p>
+            <p class="li-p">Category: ${item.category}</p>
+        </li>`
+    })       
 
+}
+
+const filterSearchData = () => {
     if (searchInput.value.length > 2) {
         if (booksFromLocalStorage.length === 0) {
             filteredBooks = books.filter(item => item.title.toUpperCase().includes(searchInput.value.toUpperCase()))
             if (filteredBooks.length > 0) {
-                unOrderList.innerHTML = "";
-                filteredBooks.forEach((item, index) => {
-                    unOrderList.innerHTML +=` 
-                    <li class="li">
-                        <p class="li-p li-title">Title: ${item.title}</p>
-                        <img class="li-img" src=${item.image} alt=${item.alt}></img>
-                        <p class="li-p">Author: ${item.author}</p>
-                        <p class="li-p">Release date: ${item.year}</p>
-                        <p class="li-p">Category: ${item.category}</p>
-                    </li>`
-                })       
+                fillList(filteredBooks, unOrderList);
             }
             else {
                 alert("We don't have any books of this title!!!")
@@ -121,17 +107,7 @@ function validate () {
         } else {
             filteredBooks = booksFromLocalStorage.filter(item => item.title.toUpperCase().includes(searchInput.value.toUpperCase()))
             if (filteredBooks.length > 0) {
-                unOrderList.innerHTML = "";
-                filteredBooks.forEach((item, index) => {
-                    unOrderList.innerHTML +=` 
-                    <li class="li">
-                        <p class="li-p li-title">Title: ${item.title}</p>
-                        <img class="li-img" src=${item.image} alt=${item.alt}></img>
-                        <p class="li-p">Author: ${item.author}</p>
-                        <p class="li-p">Release date: ${item.year}</p>
-                        <p class="li-p">Category: ${item.category}</p>
-                    </li>`
-                })       
+                fillList(filteredBooks, unOrderList);
             }
             else {
                 alert("We don't have any books of this title!!!")
@@ -143,3 +119,15 @@ function validate () {
     }  
 }
 
+function validate () {
+    if (searchInput.value.length < 3) {
+        navP.innerText = "Za mała ilość znaków!!!"
+        setTimeout(() => location.reload(), 2000) 
+    } else {
+        navP.innerText = "";
+    }
+    filterSearchData();
+}
+
+searchInput.addEventListener("change", () => validate());
+searchButton.addEventListener("click", () => validate());
